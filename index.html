@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <title>Facility Ops | Maintenance & Inventory</title>
+  <style>
+    :root{--ink:#172b4d;--muted:#627d98;--line:#d9e2ec;--paper:#f4f7fb;--white:#fff;--nav:#102a43;--blue:#1769aa;--teal:#07877c;--gold:#e5a323;--red:#c93756;--green:#198754;--shadow:0 6px 22px #102a4310}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.shell{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:235px;background:var(--nav);color:white;padding:25px 16px;display:flex;flex-direction:column;z-index:2}.brand{font-weight:750;font-size:18px;padding:0 12px 26px;letter-spacing:.2px}.brand small{display:block;color:#9fb3c8;font-size:12px;font-weight:450;margin-top:3px}.nav-label{color:#819ab3;font-size:11px;text-transform:uppercase;letter-spacing:1px;padding:12px}.nav button{display:flex;align-items:center;gap:12px;width:100%;border:0;background:transparent;color:#c5d3e0;text-align:left;padding:11px 12px;border-radius:8px;margin:2px 0}.nav button:hover,.nav button.active{background:#23435f;color:#fff}.nav .icon{width:20px;text-align:center}.side-note{margin-top:auto;color:#93a9bf;font-size:12px;padding:12px}.main{margin-left:235px;padding:26px 34px 50px;max-width:1600px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.eyebrow{color:var(--muted);font-size:13px}.topbar h1{font-size:25px;margin:2px 0 0}.date-badge{background:#e5eef7;color:#33536e;padding:8px 12px;border-radius:8px;font-size:13px}.section{display:none}.section.active{display:block}.grid{display:grid;gap:17px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:18px 0}.card{background:var(--white);border:1px solid #e6edf4;border-radius:12px;padding:19px;box-shadow:var(--shadow)}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:28px;font-weight:750;margin:7px 0 2px}.stat-foot{font-size:12px;color:var(--muted)}.stat-icon{float:right;width:38px;height:38px;border-radius:10px;background:#e8f2fb;display:grid;place-items:center;font-size:19px}.split{grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr)}.section-head{display:flex;justify-content:space-between;align-items:center;margin:25px 0 13px}.section-head h2{font-size:18px;margin:0}.section-head p{margin:2px 0 0;color:var(--muted);font-size:13px}.chart-wrap{height:250px;position:relative}.chart-wrap canvas{width:100%;height:100%}.chart-legend{display:flex;gap:18px;color:var(--muted);font-size:12px;margin-top:10px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.table-card{padding:0;overflow:hidden}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:13px 16px;border-bottom:1px solid #edf1f5}th{font-size:12px;color:#627d98;background:#f8fafc;font-weight:650}td{font-size:13px}tbody tr:last-child td{border-bottom:0}.badge{display:inline-block;padding:3px 8px;border-radius:100px;font-size:11px;font-weight:650;background:#edf2f7;color:#52667a}.badge.good{background:#e2f5eb;color:#177245}.badge.warn{background:#fff3d6;color:#976300}.badge.bad{background:#ffe5e9;color:#a52a42}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:15px 0}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:7px;font-size:13px;font-weight:600}.btn:hover{background:#f4f8fc}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.primary:hover{background:#0e568f}.btn.small{padding:5px 8px;font-size:12px}.btn.danger{color:var(--red)}.field{display:flex;flex-direction:column;gap:5px;min-width:140px;flex:1}.field label{font-size:12px;font-weight:650;color:#486581}.field input,.field select{border:1px solid var(--line);border-radius:7px;padding:9px 10px;background:#fff;color:var(--ink);min-width:0}.form-card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:end}.form-card .wide{grid-column:span 2}.form-card .full{grid-column:1/-1}.form-title{font-size:16px;margin:0 0 14px}.empty{text-align:center;color:var(--muted);padding:35px}.muted{color:var(--muted)}.quick-actions{display:grid;gap:10px}.quick-actions button{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:13px;border:1px solid var(--line);background:#fff;border-radius:9px;color:var(--ink)}.quick-actions button:hover{border-color:#9bbbd6;background:#f8fbff}.quick-actions span{font-size:12px;color:var(--muted)}.filters{max-width:230px}.toast{position:fixed;right:22px;bottom:22px;background:#143650;color:white;padding:12px 17px;border-radius:8px;box-shadow:var(--shadow);z-index:5;opacity:0;transform:translateY(8px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.footnote{font-size:12px;color:var(--muted);margin-top:16px}
+    @media(max-width:1000px){.sidebar{width:190px}.main{margin-left:190px;padding:22px}.stats{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}}
+    @media(max-width:680px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:10px;background:var(--nav)}.brand{padding:4px 8px 10px}.brand small,.nav-label,.side-note{display:none}.nav{display:flex;overflow:auto;gap:3px}.nav button{width:auto;white-space:nowrap;padding:9px}.main{margin:0;padding:19px 14px}.topbar h1{font-size:21px}.date-badge{display:none}.stats{gap:10px}.card{padding:15px}.stat-value{font-size:23px}.form-card{grid-template-columns:1fr 1fr}.form-card .wide{grid-column:span 2}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">Facility Ops<small>Maintenance management</small></div>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav" aria-label="Main navigation">
+      <button class="active" data-page="dashboard"><span class="icon">▦</span>Dashboard</button>
+      <button data-page="inventory"><span class="icon">▤</span>Inventory</button>
+      <button data-page="smrf"><span class="icon">▧</span>SMRF Requests</button>
+      <button data-page="savings"><span class="icon">＄</span>Cost Saving</button>
+    </nav>
+    <div class="side-note">Standalone edition · Data saved in this browser</div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">Facility Management / Maintenance</div><h1 id="page-title">Dashboard</h1></div><div class="date-badge" id="today"></div></header>
+
+    <section class="section active" id="page-dashboard">
+      <div class="eyebrow">Operations overview · Live data from this device</div>
+      <div class="grid stats">
+        <article class="card"><span class="stat-icon">▤</span><div class="stat-label">Inventory items</div><div class="stat-value" id="stat-items">—</div><div class="stat-foot" id="stat-stock">Tracked assets and supplies</div></article>
+        <article class="card"><span class="stat-icon">▧</span><div class="stat-label">Open SMRF requests</div><div class="stat-value" id="stat-requests">—</div><div class="stat-foot">Awaiting fulfillment</div></article>
+        <article class="card"><span class="stat-icon">＄</span><div class="stat-label">Savings recorded</div><div class="stat-value" id="stat-savings">—</div><div class="stat-foot">All-time verified entries</div></article>
+        <article class="card"><span class="stat-icon">⚠</span><div class="stat-label">Low stock alerts</div><div class="stat-value" id="stat-low">—</div><div class="stat-foot">At or below reorder level</div></article>
+      </div>
+      <div class="section-head"><div><h2>Historical performance</h2><p>Monthly maintenance spend and savings</p></div><button class="btn" id="export-history">Export CSV</button></div>
+      <div class="grid split">
+        <article class="card"><div class="chart-wrap"><canvas id="history-chart" aria-label="Historical spending and savings chart"></canvas></div><div class="chart-legend"><span><i class="dot" style="background:#1769aa"></i>Maintenance spend</span><span><i class="dot" style="background:#07877c"></i>Cost savings</span></div></article>
+        <article class="card"><h2 class="form-title">Quick actions</h2><div class="quick-actions"><button data-goto="smrf"><b>＋ Create material request</b><span>SMRF</span></button><button data-goto="inventory"><b>＋ Add inventory item</b><span>Stock</span></button><button data-goto="savings"><b>＋ Record cost saving</b><span>Finance</span></button></div><p class="footnote">Historical chart combines saved monthly records with current cost-saving entries.</p></article>
+      </div>
+      <div class="section-head"><div><h2>Recent activity</h2><p>Latest requests and cost-saving records</p></div></div>
+      <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Activity</th><th>Details</th><th>Value / Status</th></tr></thead><tbody id="recent-activity"></tbody></table></div></div>
+    </section>
+
+    <section class="section" id="page-inventory">
+      <div class="eyebrow">Track spare parts, consumables, and maintenance supplies</div>
+      <div class="toolbar"><input class="field filters" id="inventory-search" placeholder="Search inventory…" aria-label="Search inventory"><button class="btn" id="inventory-export">Export CSV</button></div>
+      <article class="card"><h2 class="form-title">Add inventory item</h2><form id="inventory-form" class="form-card">
+        <div class="field"><label for="item-name">Item name *</label><input id="item-name" required placeholder="e.g. HVAC air filter"></div>
+        <div class="field"><label for="item-category">Category</label><input id="item-category" placeholder="HVAC, electrical…"></div>
+        <div class="field"><label for="item-qty">Quantity *</label><input id="item-qty" type="number" min="0" step="1" required value="0"></div>
+        <div class="field"><label for="item-unit">Unit</label><input id="item-unit" placeholder="pcs, box, L"></div>
+        <div class="field"><label for="item-reorder">Reorder level</label><input id="item-reorder" type="number" min="0" step="1" value="5"></div>
+        <div class="field"><label for="item-cost">Unit cost ($)</label><input id="item-cost" type="number" min="0" step="0.01" value="0"></div>
+        <button class="btn primary" type="submit">Add item</button>
+      </form></article>
+      <div class="section-head"><div><h2>Inventory register</h2><p>Update stock quantities or remove obsolete records</p></div></div>
+      <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Item</th><th>Category</th><th>Quantity</th><th>Unit cost</th><th>Stock status</th><th>Actions</th></tr></thead><tbody id="inventory-table"></tbody></table></div></div>
+      <p class="footnote">Quantities are reduced automatically when a material request is marked fulfilled.</p>
+    </section>
+
+    <section class="section" id="page-smrf">
+      <div class="eyebrow">SMRF — Store/Material Requisition Form · Create and track requests</div>
+      <article class="card" style="margin-top:16px"><h2 class="form-title">New material request</h2><form id="request-form" class="form-card">
+        <div class="field"><label for="request-item">Material *</label><select id="request-item" required></select></div>
+        <div class="field"><label for="request-qty">Quantity *</label><input id="request-qty" type="number" min="1" step="1" required value="1"></div>
+        <div class="field"><label for="requester">Requested by *</label><input id="requester" required placeholder="Name / team"></div>
+        <div class="field"><label for="request-priority">Priority</label><select id="request-priority"><option>Normal</option><option>High</option><option>Urgent</option></select></div>
+        <div class="field"><label for="request-date">Required by</label><input id="request-date" type="date"></div>
+        <div class="field"><label for="request-notes">Purpose / work order</label><input id="request-notes" placeholder="Optional details"></div>
+        <button class="btn primary" type="submit">Submit request</button>
+      </form></article>
+      <div class="section-head"><div><h2>Request register</h2><p>Fulfill requests to deduct available inventory</p></div><select class="btn" id="request-filter"><option value="all">All requests</option><option value="Open">Open</option><option value="Fulfilled">Fulfilled</option></select></div>
+      <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Request ID</th><th>Created</th><th>Material</th><th>Qty</th><th>Requester</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead><tbody id="request-table"></tbody></table></div></div>
+    </section>
+
+    <section class="section" id="page-savings">
+      <div class="eyebrow">Document savings from maintenance and facility initiatives</div>
+      <article class="card" style="margin-top:16px"><h2 class="form-title">Record a cost-saving initiative</h2><form id="savings-form" class="form-card">
+        <div class="field"><label for="saving-title">Initiative *</label><input id="saving-title" required placeholder="e.g. LED retrofit, preventive maintenance"></div>
+        <div class="field"><label for="saving-amount">Savings amount ($) *</label><input id="saving-amount" type="number" min="0.01" step="0.01" required></div>
+        <div class="field"><label for="saving-date">Date *</label><input id="saving-date" type="date" required></div>
+        <div class="field"><label for="saving-category">Category</label><select id="saving-category"><option>Energy</option><option>Repairs</option><option>Procurement</option><option>Water</option><option>Other</option></select></div>
+        <div class="field"><label for="saving-notes">Notes / evidence</label><input id="saving-notes" placeholder="Optional notes"></div>
+        <button class="btn primary" type="submit">Record savings</button>
+      </form></article>
+      <div class="section-head"><div><h2>Cost-saving register</h2><p>Historical entries are included in the dashboard</p></div><button class="btn" id="savings-export">Export CSV</button></div>
+      <div class="card table-card"><div class="table-scroll"><table><thead><tr><th>Date</th><th>Initiative</th><th>Category</th><th>Notes</th><th>Amount</th><th>Action</th></tr></thead><tbody id="savings-table"></tbody></table></div></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const KEY='facilityOpsData_v1';
+  const month=(offset)=>{const d=new Date();d.setDate(1);d.setMonth(d.getMonth()+offset);return d.toISOString().slice(0,7)};
+  const today=new Date().toISOString().slice(0,10);
+  const starter={inventory:[
+    {id:'I-1001',name:'HVAC air filter',category:'HVAC',qty:18,unit:'pcs',reorder:6,cost:22.5},
+    {id:'I-1002',name:'LED tube 4 ft',category:'Electrical',qty:42,unit:'pcs',reorder:10,cost:8.75},
+    {id:'I-1003',name:'Pipe sealant',category:'Plumbing',qty:4,unit:'tube',reorder:5,cost:6.25},
+    {id:'I-1004',name:'Safety gloves',category:'Safety',qty:25,unit:'pairs',reorder:8,cost:4.5}
+  ],requests:[
+    {id:'MR-1042',date:today,itemId:'I-1001',item:'HVAC air filter',qty:2,requester:'Maintenance team',priority:'Normal',required:today,notes:'Quarterly service',status:'Open'},
+    {id:'MR-1041',date:today,itemId:'I-1002',item:'LED tube 4 ft',qty:4,requester:'A. Rivera',priority:'High',required:today,notes:'Work order 218',status:'Fulfilled'}
+  ],savings:[
+    {id:'S-1',date:`${month(-1)}-12`,title:'Lighting schedule optimization',category:'Energy',amount:420,notes:'Reduced after-hours usage'},
+    {id:'S-2',date:`${month(-2)}-08`,title:'Preventive HVAC servicing',category:'Repairs',amount:310,notes:'Avoided emergency callout'}
+  ],history:[{month:month(-5),spend:6800,savings:410},{month:month(-4),spend:6450,savings:520},{month:month(-3),spend:7200,savings:460},{month:month(-2),spend:6100,savings:680},{month:month(-1),spend:5900,savings:740},{month:month(0),spend:5600,savings:810}]};
+  let data;try{data=JSON.parse(localStorage.getItem(KEY))||starter}catch{data=starter}
+  const save=()=>localStorage.setItem(KEY,JSON.stringify(data));
+  const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const money=(n)=>'$'+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+  const fmtDate=(s)=>s?new Date(s+'T12:00:00').toLocaleDateString():'—';
+  const toast=(msg)=>{const el=document.querySelector('#toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2300)};
+  const getItem=(id)=>data.inventory.find(x=>x.id===id);
+  function go(page){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));document.querySelector('#page-title').textContent=({dashboard:'Dashboard',inventory:'Inventory',smrf:'SMRF Requests',savings:'Cost Saving'})[page];if(page==='dashboard')drawChart();window.scrollTo(0,0)}
+  document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+  document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.goto)));
+  document.querySelector('#today').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',year:'numeric',month:'short',day:'numeric'});
+  document.querySelector('#saving-date').value=today;document.querySelector('#request-date').value=today;
+  function renderInventory(){const q=document.querySelector('#inventory-search').value.toLowerCase();const rows=data.inventory.filter(i=>(i.name+' '+i.category).toLowerCase().includes(q));document.querySelector('#inventory-table').innerHTML=rows.length?rows.map(i=>`<tr><td><b>${esc(i.name)}</b><br><span class="muted">${esc(i.id)}</span></td><td>${esc(i.category||'—')}</td><td><b>${i.qty}</b> ${esc(i.unit||'')}</td><td>${money(i.cost)}</td><td><span class="badge ${i.qty<=i.reorder?'bad':'good'}">${i.qty<=i.reorder?'Reorder':'In stock'}</span> <small class="muted">(min ${i.reorder})</small></td><td><button class="btn small" data-stock="${i.id}" data-delta="1">+1</button> <button class="btn small" data-stock="${i.id}" data-delta="-1">−1</button> <button class="btn small danger" data-delete-item="${i.id}">Delete</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty">No inventory items found.</td></tr>';
+    document.querySelector('#request-item').innerHTML=data.inventory.length?data.inventory.map(i=>`<option value="${esc(i.id)}">${esc(i.name)} — ${i.qty} ${esc(i.unit||'')}</option>`).join(''):'<option value="">Add inventory before submitting a request</option>';
+  }
+  function renderRequests(){const f=document.querySelector('#request-filter').value;const rows=data.requests.filter(r=>f==='all'||r.status===f);document.querySelector('#request-table').innerHTML=rows.length?rows.map(r=>`<tr><td><b>${esc(r.id)}</b></td><td>${fmtDate(r.date)}</td><td>${esc(r.item)}</td><td>${r.qty}</td><td>${esc(r.requester)}</td><td><span class="badge ${r.priority==='Urgent'?'bad':r.priority==='High'?'warn':''}">${esc(r.priority)}</span></td><td><span class="badge ${r.status==='Fulfilled'?'good':'warn'}">${esc(r.status)}</span></td><td>${r.status==='Open'?`<button class="btn small primary" data-fulfill="${esc(r.id)}">Fulfill</button>`:'—'}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">No requests match this filter.</td></tr>'}
+  function renderSavings(){const rows=[...data.savings].sort((a,b)=>b.date.localeCompare(a.date));document.querySelector('#savings-table').innerHTML=rows.length?rows.map(s=>`<tr><td>${fmtDate(s.date)}</td><td><b>${esc(s.title)}</b></td><td>${esc(s.category)}</td><td>${esc(s.notes||'—')}</td><td><b>${money(s.amount)}</b></td><td><button class="btn small danger" data-delete-saving="${esc(s.id)}">Delete</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty">No cost-saving entries yet.</td></tr>'}
+  function renderDashboard(){const low=data.inventory.filter(i=>i.qty<=i.reorder).length;document.querySelector('#stat-items').textContent=data.inventory.length;document.querySelector('#stat-stock').textContent=data.inventory.reduce((n,i)=>n+Number(i.qty),0).toLocaleString()+' total units on hand';document.querySelector('#stat-requests').textContent=data.requests.filter(r=>r.status==='Open').length;document.querySelector('#stat-savings').textContent=money(data.savings.reduce((n,s)=>n+Number(s.amount),0));document.querySelector('#stat-low').textContent=low;
+    const activity=[...data.requests.map(r=>({date:r.date,type:'Material request',details:`${r.item} × ${r.qty} · ${r.requester}`,value:r.status,status:r.status})),...data.savings.map(s=>({date:s.date,type:'Cost saving',details:s.title,value:money(s.amount),status:'Recorded'}))].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,6);
+    document.querySelector('#recent-activity').innerHTML=activity.length?activity.map(a=>`<tr><td>${fmtDate(a.date)}</td><td>${esc(a.type)}</td><td>${esc(a.details)}</td><td><span class="badge ${a.status==='Fulfilled'||a.status==='Recorded'?'good':'warn'}">${esc(a.value)}</span></td></tr>`).join(''):'<tr><td colspan="4" class="empty">No activity yet.</td></tr>';drawChart();}
+  function drawChart(){const canvas=document.querySelector('#history-chart');if(!canvas)return;const rect=canvas.getBoundingClientRect();if(!rect.width)return;const dpr=window.devicePixelRatio||1;canvas.width=rect.width*dpr;canvas.height=rect.height*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);const w=rect.width,h=rect.height,p={l:42,r:12,t:12,b:34};const hist=[...data.history].sort((a,b)=>a.month.localeCompare(b.month)).slice(-6);const labels=hist.map(x=>new Date(x.month+'-01T12:00:00').toLocaleDateString(undefined,{month:'short'}));const added={};data.savings.forEach(s=>{const m=s.date.slice(0,7);added[m]=(added[m]||0)+Number(s.amount)});const vals=hist.map(x=>({spend:Number(x.spend),saving:Number(x.savings)+(added[x.month]||0)}));const max=Math.max(1000,...vals.flatMap(v=>[v.spend,v.saving]))*1.12;ctx.clearRect(0,0,w,h);ctx.font='11px system-ui';ctx.textBaseline='middle';for(let j=0;j<4;j++){const y=p.t+(h-p.t-p.b)*j/3;ctx.strokeStyle='#e7edf3';ctx.beginPath();ctx.moveTo(p.l,y);ctx.lineTo(w-p.r,y);ctx.stroke();ctx.fillStyle='#74879a';ctx.textAlign='right';ctx.fillText('$'+Math.round(max*(1-j/3)/1000)+'k',p.l-7,y)}const group=(w-p.l-p.r)/Math.max(hist.length,1);vals.forEach((v,i)=>{const x=p.l+group*i+group*.2;const bw=Math.min(25,group*.28);const base=h-p.b;const sh=(h-p.t-p.b)*v.spend/max;const vh=(h-p.t-p.b)*v.saving/max;ctx.fillStyle='#1769aa';ctx.fillRect(x,base-sh,bw,sh);ctx.fillStyle='#07877c';ctx.fillRect(x+bw+4,base-vh,bw,vh);ctx.fillStyle='#627d98';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(labels[i]||'',p.l+group*i+group/2,base+8)});}
+  function render(){renderInventory();renderRequests();renderSavings();renderDashboard()}
+  document.querySelector('#inventory-search').addEventListener('input',renderInventory);document.querySelector('#request-filter').addEventListener('change',renderRequests);
+  document.querySelector('#inventory-form').addEventListener('submit',e=>{e.preventDefault();const name=document.querySelector('#item-name').value.trim();const it={id:'I-'+Date.now().toString().slice(-6),name,category:document.querySelector('#item-category').value.trim(),qty:Number(document.querySelector('#item-qty').value),unit:document.querySelector('#item-unit').value.trim(),reorder:Number(document.querySelector('#item-reorder').value),cost:Number(document.querySelector('#item-cost').value)};data.inventory.push(it);save();e.target.reset();document.querySelector('#item-qty').value=0;document.querySelector('#item-reorder').value=5;document.querySelector('#item-cost').value=0;render();toast('Inventory item added.')});
+  document.querySelector('#request-form').addEventListener('submit',e=>{e.preventDefault();const item=getItem(document.querySelector('#request-item').value);if(!item){toast('Add inventory before creating a request.');return}const r={id:'MR-'+Date.now().toString().slice(-6),date:today,itemId:item.id,item:item.name,qty:Number(document.querySelector('#request-qty').value),requester:document.querySelector('#requester').value.trim(),priority:document.querySelector('#request-priority').value,required:document.querySelector('#request-date').value,notes:document.querySelector('#request-notes').value.trim(),status:'Open'};data.requests.unshift(r);save();e.target.reset();document.querySelector('#request-date').value=today;render();toast('Material request submitted.')});
+  document.querySelector('#savings-form').addEventListener('submit',e=>{e.preventDefault();data.savings.unshift({id:'S-'+Date.now(),date:document.querySelector('#saving-date').value,title:document.querySelector('#saving-title').value.trim(),amount:Number(document.querySelector('#saving-amount').value),category:document.querySelector('#saving-category').value,notes:document.querySelector('#saving-notes').value.trim()});save();e.target.reset();document.querySelector('#saving-date').value=today;render();toast('Cost saving recorded.')});
+  document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;if(t.dataset.stock){const i=getItem(t.dataset.stock);if(i){i.qty=Math.max(0,i.qty+Number(t.dataset.delta));save();render();toast('Stock quantity updated.')}}if(t.dataset.deleteItem){data.inventory=data.inventory.filter(i=>i.id!==t.dataset.deleteItem);save();render();toast('Inventory item deleted.')}if(t.dataset.fulfill){const r=data.requests.find(x=>x.id===t.dataset.fulfill);if(!r)return;const i=getItem(r.itemId);if(i&&i.qty<r.qty){toast(`Insufficient stock: ${i.qty} available.`);return}if(i)i.qty-=r.qty;r.status='Fulfilled';save();render();toast('Request fulfilled and stock deducted.')}if(t.dataset.deleteSaving){data.savings=data.savings.filter(s=>s.id!==t.dataset.deleteSaving);save();render();toast('Savings entry deleted.')}});
+  function csv(name,rows){const content=rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:'text/csv'}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
+  document.querySelector('#inventory-export').addEventListener('click',()=>csv('facility-inventory.csv',[['ID','Item','Category','Quantity','Unit','Reorder level','Unit cost'],...data.inventory.map(i=>[i.id,i.name,i.category,i.qty,i.unit,i.reorder,i.cost])]));
+  document.querySelector('#savings-export').addEventListener('click',()=>csv('facility-cost-savings.csv',[['Date','Initiative','Category','Amount','Notes'],...data.savings.map(s=>[s.date,s.title,s.category,s.amount,s.notes])]));
+  document.querySelector('#export-history').addEventListener('click',()=>csv('facility-history.csv',[['Month','Maintenance spend','Recorded savings'],...data.history.map(h=>[h.month,h.spend,h.savings]),...data.savings.map(s=>[s.date.slice(0,7),0,s.amount])]));
+  window.addEventListener('resize',()=>{if(document.querySelector('#page-dashboard').classList.contains('active'))drawChart()});
+  save();render();
+})();
+</script>
+</body>
+</html>
